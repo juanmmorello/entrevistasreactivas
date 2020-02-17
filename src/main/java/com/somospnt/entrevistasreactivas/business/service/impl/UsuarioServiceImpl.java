@@ -4,10 +4,9 @@ import com.somospnt.entrevistasreactivas.business.service.UsuarioService;
 import com.somospnt.entrevistasreactivas.domain.Rol;
 import com.somospnt.entrevistasreactivas.domain.Usuario;
 import com.somospnt.entrevistasreactivas.repository.UsuarioRepository;
-import com.somospnt.entrevistasreactivas.utils.BCryptEncoder;
+import com.somospnt.entrevistasreactivas.utils.PasswordEncodingFactory;
 import com.somospnt.entrevistasreactivas.vo.SolicitudRegistroUsuarioVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -18,7 +17,7 @@ import java.util.List;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-    private final BCryptEncoder passwordEncoder;
+    private final PasswordEncodingFactory passwordEncoder;
 
     @Override
     public Mono<Usuario> buscarPorNombre(String nombre) {
