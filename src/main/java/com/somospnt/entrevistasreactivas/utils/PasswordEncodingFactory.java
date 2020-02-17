@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class PasswordEncodingFactory {
 
     public PasswordEncoder passwordEncoder() {
-        return new Pbkdf2PasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
 }

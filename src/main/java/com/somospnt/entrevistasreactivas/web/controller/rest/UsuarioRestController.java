@@ -34,7 +34,7 @@ public class UsuarioRestController {
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
-        });
+        }).defaultIfEmpty(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 
     }
 
