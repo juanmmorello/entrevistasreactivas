@@ -2,11 +2,13 @@ package com.somospnt.entrevistasreactivas.business.service;
 
 import com.somospnt.entrevistasreactivas.EntrevistasreactivasApplicationTests;
 import com.somospnt.entrevistasreactivas.domain.Entrevista;
+import com.somospnt.entrevistasreactivas.domain.Rol;
 import com.somospnt.entrevistasreactivas.domain.Usuario;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,6 +37,6 @@ public class EntrevistaServiceTests extends EntrevistasreactivasApplicationTests
     }
 
     private Usuario generarUsuario() {
-        return new Usuario("Algun id", "Algun nombre", "Alguna password", "ROLE_USER");
+        return new Usuario("Algun id", "Algun nombre", "Alguna password", List.of(Rol.ROLE_USER));
     }
 }
