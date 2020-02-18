@@ -9,6 +9,21 @@ services:
       - 27017:27017
     volumes:
       - mongodb_data_container:/data/db
-
+  backend:
+    container_name: "entrevistas-reactivas-backend"
+    build: ./sources/entrevistasreactivas/
+    image: entrevistas-reactivas-backend:master
+    ports:
+      - 9999:9999
+    environment:
+      SERVER_PORT: 9999
+      SPRING_DATA_MONGODB_HOST: localhost
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_USERNAME: root
+      SPRING_DATA_MONGODB_PASSWORD: root
+      SPRING_DATA_MONGODB_DATABASE: entrevistas
+      SPRING_DATA_MONGODB_AUTHENTICATION-DATABSE=: admin
+      COM_SOMOSPNT_ENTREVISTASREACTIVAS_JWT_SECRET: fHjUvYEKhVPZqdH6gWEAjQyuxAhJTgG3cztTNQuU3z9zQLtFJ3EQeKZFmaZpxEsQCC7cHGWa68Zwbpy8C99qsMtHjAhCXYghg4kqHTSF79rZWU83Y5gMQcvbb5gNf83bmqM6SqtBdYVN4fEKNjgakMSeeALk42UPfHNbzLLBAK6tRWdpZrW9ZkTxedqjhp2QrfaHEPrDJdAKRKXGHLvVWRBE8ZrGTYj4ESh4fu3PvkevmuD8eT8PFYnVLuv3Yry5
+      COM_SOMOSPNT_ENTREVISTASREACTIVAS_JWT_EXPIRATION: 28800
 volumes:
   mongodb_data_container:
