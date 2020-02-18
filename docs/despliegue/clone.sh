@@ -5,13 +5,13 @@ cd sources
 
 echo === Clonando ===
 
-if [[ $# == 1 ]];then
-    git clone --single-branch -b $1 git@github.com:juanmmorello/entrevistasreactivas.git
+if [[ $# == 1 ]]; then
+  git clone --single-branch -b $1 git@github.com:juanmmorello/entrevistasreactivas.git
 else
-    git clone --single-branch -b master git@github.com:juanmmorello/entrevistasreactivas.git
+  git clone --single-branch -b master git@github.com:juanmmorello/entrevistasreactivas.git
 fi
 
-echo === Creando scripts de despliegue  ===
+echo === Creando scripts de despliegue ===
 cd ..
 rm start.sh remove.sh stop.sh docker-compose.yml
 cp ./sources/entrevistasreactivas/docs/despliegue/{start.sh,remove.sh,stop.sh,docker-compose.yml} ./
